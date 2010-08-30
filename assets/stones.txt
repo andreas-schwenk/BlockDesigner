@@ -1,0 +1,589 @@
+/*
+    Lego-Designer   (c) 2010  by Andreas Schwenk
+
+<NUMBER>        ::= '0'|'1'|...|'9'
+<LETTER>        ::= 'a'|'b'|...|'z'|'A'|'B'|...|'Z'|'_'
+<INT>           ::= <NUMBER>{<NUMBER>}
+<INT2>          ::= <INT>','<INT>
+<DEC>           ::= ['-']<INT>'.'<INT>|['-']<INT>
+<VECTOR3>       ::= <DEC>','<DEC>','<DEC>
+<IDENTIFIER>    ::= <LETTER>{<LETTER>|<NUMBER>}
+<STRING>        ::= '"'{<ASCII>}'"'
+
+<STATEMENT>     ::= 'ID''='<INTEGER>';'|'CAPTION''='<STRING>';'
+                   |'SCALE''='<VECTOR3>';'|'TEX_SIZE'=<INTEGER>';'
+                   |'TEX_FILE''='<STRING>';'|'TRANSLATION''='<VECTOR3>';'
+
+<INDEX>         ::= "["<INT>"]"
+
+<VERTICES>      ::= 'VERT''{'{[<INDEX>]<VECTOR3>';'}'}'
+
+<TEXCO2>        ::= <INT2>':'<INT2>|<INT2>','<INT2>','<INT2>{','<INT2>}
+<TEXTURECOORDS> ::= 'TEX_COO''{'{[<INDEX>]<TEXCO2>';'}'}'
+
+<FACE>          ::= <INT>','<INT>','<INT>{','<INT>}
+<FACES>         ::= 'FACES''{'{[<INDEX>]<FACE>';'<INT>';'}'}'
+
+<DEFINITION>    ::= <VERTICES>|<TEXTURECOORDS>|<FACES>
+
+<OBJECT>        ::= 'OBJ'<IDENTIFIER>['CLONEOF'<IDENTIFIER>]'{'{<STATEMENT>|<DEFINITION>}'}'
+
+*/
+
+OBJ stone232
+{
+    ID          = 232;
+    CAPTION     = "2x2";
+    SCALE       = 2.0, 1.2, 2.0;
+    TEX_SIZE    = 512;
+    TEX_FILE    = "stone.png";
+    TRANSLATION = 0.0, 0.6, 0.0;
+
+    VERT
+    {
+        -0.5,  0.5,  0.5;
+         0.5,  0.5,  0.5;
+        -0.5, -0.5,  0.5;
+         0.5, -0.5,  0.5;
+
+        -0.5,  0.5, -0.5;
+         0.5,  0.5, -0.5;
+        -0.5, -0.5, -0.5;
+         0.5, -0.5, -0.5;
+    }
+
+    TEX_COO
+    {
+        216, 120 : 255, 143;   // x-sides
+        216, 120 : 255, 143;    // z-sides
+        256,   0 : 295,  39;   // top/bottom
+    }
+
+    FACES
+    {
+        0, 2, 3, 1;    0;   // front
+        5, 7, 6, 4;    0;   // back
+        4, 6, 2, 0;    1;   // left
+        1, 3, 7, 5;    1;   // right
+        4, 0, 1, 5;    2;   // top
+        2, 6, 7, 3;    2;   // bottom
+    }
+}
+
+OBJ stone332 CLONEOF stone232
+{
+    ID          = 332;
+    CAPTION     = "3x2";
+    SCALE       = 3.0, 1.2, 2.0;
+    TRANSLATION = 0.5, 0.6, 0.0;
+
+    TEX_COO
+    {
+        [0] 196,  96 : 255, 119;   // x-sides
+        [2] 256,  40 : 315,  79;   // top/bottom
+    }
+}
+
+OBJ stone432 CLONEOF stone232
+{
+    ID          = 432;
+    CAPTION     = "4x2";
+    SCALE       = 4.0, 1.2, 2.0;
+
+    TEX_COO
+    {
+        [0] 176,  72 : 255,  95;    // x-sides
+        [2] 256,  80 : 335, 119;    // top/bottom
+    }
+}
+
+OBJ stone632 CLONEOF stone232
+{
+    ID          = 632;
+    CAPTION     = "6x2";
+    SCALE       = 6.0, 1.2, 2.0;
+
+    TEX_COO
+    {
+        [0] 136,  48 : 255,  71;   // x-sides
+        [2] 256, 120 : 375, 159;   // top/bottom
+    }
+}
+
+OBJ stone832 CLONEOF stone232
+{
+    ID          = 832;
+    CAPTION     = "8x2";
+    SCALE       = 8.0, 1.2, 2.0;
+
+    TEX_COO
+    {
+        [0]  96,  24 : 255,  47;   // x-sides
+        [2] 256, 160 : 415, 199;   // top/bottom
+    }
+}
+
+OBJ stone1032 CLONEOF stone232
+{
+    ID          = 1032;
+    CAPTION     = "10x2";
+    SCALE       = 10.0, 1.2, 2.0;
+
+    TEX_COO
+    {
+        [0]  56,   0 : 255,  23;   // x-sides
+        [2] 256, 200 : 455, 239;   // top/bottom
+    }
+}
+
+OBJ stone131 CLONEOF stone232
+{
+    ID          = 131;
+    CAPTION     = "1x1";
+    SCALE       = 1.0, 1.2, 1.0;
+    TRANSLATION = 0.5, 0.6, 0.5;
+
+    TEX_COO
+    {
+        [0] 236, 144 : 255, 167;   // x-sides
+        [1] 236, 144 : 255, 167;   // z-sides
+        [2]   0,   0 :  19,  19;   // top/bottom
+    }
+}
+
+OBJ stone231 CLONEOF stone131
+{
+    ID          = 231;
+    CAPTION     = "2x1";
+    SCALE       = 2.0, 1.2, 1.0;
+    TRANSLATION = 0.0, 0.6, 0.5;
+
+    TEX_COO
+    {
+        [0] 216, 120 : 255, 143;   // x-sides
+        [2]   0,  20 :  39,  39;   // top/bottom
+    }
+}
+
+OBJ stone331 CLONEOF stone131
+{
+    ID          = 331;
+    CAPTION     = "3x1";
+    SCALE       = 3.0, 1.2, 1.0;
+
+    TEX_COO
+    {
+        [0] 196,  96 : 255, 119;   // x-sides
+        [2]   0,  40 :  59,  59;   // top/bottom
+    }
+}
+
+OBJ stone431 CLONEOF stone231
+{
+    ID          = 431;
+    CAPTION     = "4x1";
+    SCALE       = 4.0, 1.2, 1.0;
+
+    TEX_COO
+    {
+        [0] 176,  72 : 255,  95;   // x-sides
+        [2]   0,  60 :  79,  79;   // top/bottom
+    }
+}
+
+OBJ stone631 CLONEOF stone231
+{
+    ID          = 631;
+    CAPTION     = "6x1";
+    SCALE       = 6.0, 1.2, 1.0;
+
+    TEX_COO
+    {
+        [0] 136,  48 : 255,  71;   // x-sides
+        [2]   0,  80 : 119,  99;   // top/bottom
+    }
+}
+
+OBJ stone831 CLONEOF stone231
+{
+    ID          = 831;
+    CAPTION     = "8x1";
+    SCALE       = 8.0, 1.2, 1.0;
+
+    TEX_COO
+    {
+        [0]  96,  24 : 255,  47;   // x-sides
+        [2]   0, 100 : 159, 119;   // top/bottom
+    }
+}
+
+OBJ stone1031 CLONEOF stone231
+{
+    ID          = 1031;
+    CAPTION     = "10x1";
+    SCALE       = 10.0, 1.2, 1.0;
+
+    TEX_COO
+    {
+        [0]  56,   0 : 255,  23;   // x-sides
+        [2]   0, 120 : 199, 139;   // top/bottom
+    }
+}
+
+// ********** FLAT **********
+OBJ stone212 CLONEOF stone232
+{
+    ID          = 212;
+    CAPTION     = "2x2 (flat)";
+    SCALE       = 2.0, 0.4, 2.0;
+    TRANSLATION = 0.0, 0.2, 0.0;
+
+    TEX_COO
+    {
+        [0]   0, 158 :  39, 165;   // x-sides
+        [1]   0, 158 :  39, 165;   // z-sides
+    }
+}
+
+OBJ stone312 CLONEOF stone332
+{
+    ID          = 312;
+    CAPTION     = "3x2 (flat)";
+    SCALE       = 3.0, 0.4, 2.0;
+    TRANSLATION = 0.5, 0.2, 0.0;
+
+    TEX_COO
+    {
+        [0]   0, 166 :  59, 173;   // x-sides
+        [1]   0, 158 :  39, 165;   // z-sides
+    }
+}
+
+OBJ stone412 CLONEOF stone432
+{
+    ID          = 412;
+    CAPTION     = "4x2 (flat)";
+    SCALE       = 4.0, 0.4, 2.0;
+    TRANSLATION = 0.0, 0.2, 0.0;
+
+    TEX_COO
+    {
+        [0]   0, 174 :  79, 181;   // x-sides
+        [1]   0, 158 :  39, 165;   // z-sides
+    }
+}
+
+OBJ stone612 CLONEOF stone632
+{
+    ID          = 612;
+    CAPTION     = "6x2 (flat)";
+    SCALE       = 6.0, 0.4, 2.0;
+    TRANSLATION = 0.0, 0.2, 0.0;
+
+    TEX_COO
+    {
+        [0]   0, 182 : 119, 189;   // x-sides
+        [1]   0, 158 :  39, 165;   // z-sides
+    }
+}
+
+OBJ stone812 CLONEOF stone832
+{
+    ID          = 812;
+    CAPTION     = "8x2 (flat)";
+    SCALE       = 8.0, 0.4, 2.0;
+    TRANSLATION = 0.0, 0.2, 0.0;
+
+    TEX_COO
+    {
+        [0]   0, 190 : 159, 197;   // x-sides
+        [1]   0, 158 :  39, 165;   // z-sides
+    }
+}
+
+OBJ stone1012 CLONEOF stone1032
+{
+    ID          = 1012;
+    CAPTION     = "10x2 (flat)";
+    SCALE       = 10.0, 0.4, 2.0;
+    TRANSLATION = 0.0, 0.2, 0.0;
+
+    TEX_COO
+    {
+        [0]   0, 198 : 199, 205;   // x-sides
+        [1]   0, 158 :  39, 165;   // z-sides
+    }
+}
+
+OBJ stone111 CLONEOF stone131
+{
+    ID          = 111;
+    CAPTION     = "1x1 (flat)";
+    SCALE       = 1.0, 0.4, 1.0;
+    TRANSLATION = 0.5, 0.2, 0.5;
+
+    TEX_COO
+    {
+        [0]   0, 150 :  19, 157;   // x-sides
+        [1]   0, 150 :  19, 157;   // z-sides
+    }
+}
+
+OBJ stone211 CLONEOF stone231
+{
+    ID          = 211;
+    CAPTION     = "2x1 (flat)";
+    SCALE       = 2.0, 0.4, 1.0;
+    TRANSLATION = 0.0, 0.2, 0.5;
+
+    TEX_COO
+    {
+        [0]   0, 158 :  39, 165;   // x-sides
+        [1]   0, 150 :  19, 157;   // z-sides
+    }
+}
+
+OBJ stone311 CLONEOF stone331
+{
+    ID          = 311;
+    CAPTION     = "3x1 (flat)";
+    SCALE       = 3.0, 0.4, 1.0;
+    TRANSLATION = 0.5, 0.2, 0.5;
+
+    TEX_COO
+    {
+        [0]   0, 166 :  59, 173;   // x-sides
+        [1]   0, 150 :  19, 157;   // z-sides
+    }
+}
+
+OBJ stone411 CLONEOF stone431
+{
+    ID          = 411;
+    CAPTION     = "4x1 (flat)";
+    SCALE       = 4.0, 0.4, 1.0;
+    TRANSLATION = 0.0, 0.2, 0.5;
+
+    TEX_COO
+    {
+        [0]   0, 174 :  79, 181;   // x-sides
+        [1]   0, 150 :  19, 157;   // z-sides
+    }
+}
+
+OBJ stone611 CLONEOF stone631
+{
+    ID          = 611;
+    CAPTION     = "6x1 (flat)";
+    SCALE       = 6.0, 0.4, 1.0;
+    TRANSLATION = 0.0, 0.2, 0.5;
+
+    TEX_COO
+    {
+        [0]   0, 182 : 119, 189;   // x-sides
+        [1]   0, 150 :  19, 157;   // z-sides
+    }
+}
+
+OBJ stone811 CLONEOF stone831
+{
+    ID          = 811;
+    CAPTION     = "8x1 (flat)";
+    SCALE       = 8.0, 0.4, 1.0;
+    TRANSLATION = 0.0, 0.2, 0.5;
+
+    TEX_COO
+    {
+        [0]   0, 190 : 159, 197;   // x-sides
+        [1]   0, 150 :  19, 157;   // z-sides
+    }
+}
+
+OBJ stone1011 CLONEOF stone1031
+{
+    ID          = 1011;
+    CAPTION     = "10x1 (flat)";
+    SCALE       = 10.0, 0.4, 1.0;
+    TRANSLATION = 0.0, 0.2, 0.5;
+
+    TEX_COO
+    {
+        [0]   0, 198 : 199, 205;   // x-sides
+        [1]   0, 150 :  19, 157;   // z-sides
+    }
+}
+
+OBJ roofTileBig
+{
+    ID          = 10000;
+    CAPTION     = "roof (big)";
+    SCALE       = 4.0, 1.2, 3.0;
+    TEX_SIZE    = 512;
+    TEX_FILE    = "stone.png";
+    TRANSLATION = 0.0, 0.6, 0.5;
+
+    VERT
+    {
+        -0.5, -0.2917,  0.5;
+         0.5, -0.2917,  0.5;
+        -0.5, -0.5,  0.5;
+         0.5, -0.5,  0.5;
+
+        -0.5,  0.5, -0.5;
+         0.5,  0.5, -0.5;
+        -0.5, -0.5, -0.5;
+         0.5, -0.5, -0.5;
+
+        -0.5,  0.5, -0.1667;
+         0.5,  0.5, -0.1667;
+    }
+
+    TEX_COO
+    {
+        0, 300,  0, 323,  59, 323,  59, 319,  20, 300; // left
+        59, 276,  39, 276,  0, 295,  0, 299,  59, 299; // right
+        60, 256 : 139, 275; // top
+        140, 256 : 219, 315; // bottom
+        60, 300 : 139, 339; // slope
+        60, 340 : 139, 344; // front
+        60, 276 : 139, 299; // back
+    }
+
+    FACES
+    {
+        4, 6, 2, 0, 8;    0; // left
+        5, 9, 1, 3, 7;    1; // right
+        4, 8, 9, 5;       2; // top
+        2, 6, 7, 3;       3; // bottom
+        8, 0, 1, 9;       4; // slope
+        0, 2, 3, 1;       5; // front
+        5, 7, 6, 4;       6; // back
+    }
+}
+
+OBJ roofTileSmall CLONEOF roofTileBig
+{
+    ID          = 10001;
+    CAPTION     = "roof (small)";
+    SCALE       = 2.0, 1.2, 3.0;
+    TRANSLATION = 0.0, 0.6, 0.5;
+
+    TEX_COO
+    {
+        [2] 140, 316 : 179, 335; // top
+        [3] 180, 316 : 219, 375; // bottom
+        [4] 140, 360 : 179, 399; // slope
+        [5] 140, 400 : 179, 404; // front
+        [6] 140, 336 : 179, 359; // back
+    }
+}
+
+OBJ roofTileEdge
+{
+    ID          = 10002;
+    CAPTION     = "roof (edge)";
+    SCALE       = 1.0, 1.0, 1.0;
+    TEX_SIZE    = 512;
+    TEX_FILE    = "stone.png";
+    TRANSLATION = -1.0, 0.0, -1.0;
+
+    VERT
+    {
+        0, 1.2, 0;
+        1, 1.2, 0;
+        0, 1.2, 1;
+        1, 1.2, 1;
+
+        0, 0, 0;
+        3, 0, 0;
+        0, 0, 3;
+        3, 0, 3;
+
+        0, 0.25, 3;
+        3, 0.25, 0;
+        3, 0.25, 3;       
+    }
+
+    TEX_COO
+    {
+        0, 300,  0, 323,  59, 323,  59, 319,  20, 300; // left
+        0, 323 :  59, 328; // right
+        40, 256 : 59, 275; // top
+        220, 302 : 279, 362; // bottom
+        220, 256,  220, 302,  279, 302,  239, 256; // slope1
+        320, 256,  280, 302,  339, 302,  339, 256; // slope2
+        0, 323 :  59, 328; // front
+        59, 276,  39, 276,  0, 295,  0, 299,  59, 299; // right
+    }
+
+    FACES
+    {
+        0, 4, 6, 8, 2;   0; // left
+        10, 7, 5, 9;     1; // right
+        0, 2, 3, 1;      2; // top
+        6, 4, 5, 7;      3; // bottom
+        2, 8, 10, 3;     4; // slope1
+        3, 10, 9, 1;     5; // slope2
+        8, 6, 7, 10;     6; // front
+        0, 1, 9, 5, 4;   7; // back
+    }
+}
+
+OBJ roofTileSummitBig
+{
+    ID          = 10003;
+    CAPTION     = "roof (summit-big)";
+    SCALE       = 1.0, 1.0, 1.0;
+    TEX_SIZE    = 512;
+    TEX_FILE    = "stone.png";
+    TRANSLATION = -1.0, 0.0, -1.0;
+
+    VERT
+    {
+        0, 0.25, 0;
+        0, 0, 0;
+        2, 0, 0;
+        2, 0.25, 0;
+        1, 0.5, 0;
+
+        0, 0.25, 4;
+        0, 0, 4;
+        2, 0, 4;
+        2, 0.25, 4;
+        1, 0.5, 4;
+    }
+
+    TEX_COO
+    {
+        340, 266,  340, 270,  379, 270,  379, 266,  359, 257; // front/back
+        60, 340 : 139, 344; // left/right
+        340, 311 : 419, 332; // slope
+        340, 271 : 419, 310; // bottom
+    }
+
+    FACES
+    {
+        5, 6, 7, 8, 9;   0; // front
+        0, 1, 6, 5;      1; // left
+        4, 0, 5, 9;      2; // left slope
+        8, 7, 2, 3;      1; // right
+        1, 2, 7, 6;      3; // bottom
+        9, 8, 3, 4;      2; // right slope
+        3, 2, 1, 0, 4;   0; // back
+    }
+}
+
+OBJ roofTileSummitSmall CLONEOF roofTileSummitBig
+{
+    ID          = 10004;
+    CAPTION     = "roof (summit-small)";
+    SCALE       = 1.0, 1.0, 0.5;
+    TRANSLATION = -1.0, 0.0, -1.0;
+
+    TEX_COO
+    {
+        [1] 140, 400 : 179, 404; // left/right
+        [2] 340, 373 : 379, 394; // slope
+        [3] 340, 333 : 379, 372; // bottom
+    }
+}
