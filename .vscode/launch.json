@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Run BlockDesigner",
+      "request": "launch",
+      "mainClass": "GuiMainFrame",
+      "vmArgs": [
+        "--add-opens=java.base/java.lang=ALL-UNNAMED",
+        "--add-opens=java.desktop/sun.awt=ALL-UNNAMED",
+        "--add-opens=java.desktop/sun.java2d=ALL-UNNAMED",
+        "--add-exports=java.desktop/sun.awt=ALL-UNNAMED"
+      ],
+      "env": {
+        "DISPLAY": ":0"
+      }
+    }
+  ]
+}
