@@ -1,23 +1,19 @@
 # BlockDesigner (2010)
 
+BlockDesigner is a 3D modeling tool designed for creating structures with
+interlocking blocks (brick-building systems).
+
 > **Note**
 > This repository is a historical archive of the original 2010 codebase. It is
 > preserved here for educational and reference purposes and is no longer
 > actively maintained.
 
-![Screenshot of BlockDesigner](README.jpg)
-
-## About the Project
-
-BlockDesigner is a 3D modeling tool designed for creating structures with
-interlocking blocks (brick-building systems).
-
-### Historical Context
-
 - **Original Release:** 2010
 - **Language:** Java
 - **Author:** Andreas Schwenk
 - **License:** MIT
+
+![Screenshot of BlockDesigner](README.jpg)
 
 ### Why "Blocks"?
 
