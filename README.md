@@ -34,6 +34,7 @@ For easier integration with modern development environments, a `pom.xml` file wa
 To build and run the project using the 2025 Maven configuration, ensure you have Maven 3.9+ installed and run:
 
 ```bash
+mvn package
 mvn exec:java
 ```
 
